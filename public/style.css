@@ -1,59 +1,456 @@
+/* ألوان وخطوط أساسية */
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
+    padding: 0;
+
+    font-family: "Arial", sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+
+    margin: 0;
+    padding: 0;
 }
 
-.sidebar {
-    width: 100px;
-    background-color: #222;
-    color: white;
-    padding-top: 20px;
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* تنسيق بطاقات الاشتراك */
+.cards {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1f1f1f;
+    border: 1px solid #575757;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 28%;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+
+}
+
+/* تأثيرات عند التمرير على البطاقة */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    color: #cfcfcf;
+
+}
+
+.card ul li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* خصائص للبطاقة التي تحتوي على ميزة حجب */
+.line-through {
+    text-decoration: line-through;
+}
+
+/* تنسيق السعر */
+.price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #118117;
+    /* أخضر */
+    margin-top: 20px;
+}
+
+/* الأزرار */
+.btn {
+    background-color: #3498db;
+    /* أزرق */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    /* أزرق داكن */
+}
+
+/* وصف الموقع */
+.description {
+    /* لون غامق */
+    color: #fff;
+    padding: 40px 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.description p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* تنسيق العناوين والتنسيق */
+h1,
+h3 {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border: 2px solid white;
+    background-size: 100% 100%;
+}
+
+/* التأكد من توافق العرض */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+    }
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2d3748;
+    /* لون خلفية الهيدر */
+    color: #28cadf;
+}
+
+.left-section {
+    display: flex;
     align-items: center;
 }
 
-.sidebar button {
-    background: none;
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.right-section a {
+    margin-left: 10px;
+    color: #28cadf;
+    text-decoration: none;
+}
+
+.right-section a:hover {
+    color: #1e8795;
+}
+
+
+/* الفوتر */
+footer {
+    background-color: #2d3748;
     color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#myForm {
+    position: fixed;
+    /* يجعل الفورم يطفو فوق المحتوى */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background-color: #000000;
+    /* خلفية داكنة شفافة */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    z-index: 9999;
+    display: none;
+    /* اجعله مخفيًا افتراضيًا */
+}
+
+#myForm input,
+#myForm button {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
     border: none;
-    margin: 10px 0;
-    font-size: 18px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#myForm input {
+    background-color: #f0f0f0;
+}
+
+#myForm button {
+    background-color: #28a745;
+    color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.sidebar button:hover {
-    color: #00ccff;
+#myForm button:hover {
+    background-color: #218838;
 }
 
-.main-content {
-    flex: 1;
-    padding: 20px;
-}
 
-.page {
+
+.success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 255, 0, 0.7);
+    /* أخضر شفاف */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
     display: none;
 }
 
-.page h1 {
-    margin-bottom: 20px;
+
+
+
+h1 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 30px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-}
-
-table,
-th,
-td {
-    border: 1px solid #ccc;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th,
 td {
-    padding: 10px;
+    padding: 12px 15px;
     text-align: center;
+}
+
+thead {
+    background-color: #444;
+    color: #ffd700;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+
+tbody tr:hover {
+    background-color: #555;
+}
+
+a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #555;
+    }
+
+    td,
+    th {
+        text-align: right;
+        padding-right: 40%;
+        position: relative;
+    }
+
+    td::before,
+    th::before {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #aaa;
+    }
+
+    td:nth-of-type(1)::before {
+        content: "الاسم";
+    }
+
+    td:nth-of-type(2)::before {
+        content: "البريد الإلكتروني";
+    }
+
+    td:nth-of-type(3)::before {
+        content: "الخطة";
+    }
+}
+
+
+
+
+
+
+
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+}
+
+.box {
+    background-color: #1f1f1f;
+    border: 1px solid #575757;
+    border-radius: 5px;
+    border-bottom: #9f7a13 solid 2px;
+    border-top: #ffffff83 solid 1px;
+    border-left: #ffffff83 solid 1px;
+    border-right: #ffffff83 solid 1px;
+    box-shadow: 0 10px 20px rgba(4, 143, 236, 0.1);
+
+    padding: 15px 20px;
+    width: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    /* لعكس الاتجاه وجعل الأيقونة يمين */
+    align-items: center;
+    gap: 30px;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.box-icon {
+    font-size: 35px;
+    color: #d89c35;
+    flex-shrink: 0;
+}
+
+.box-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* يجعل العناصر تصطف نحو اليمين */
+    text-align: right;
+    /* يجعل النص داخل العناصر يبدأ من اليمين */
+    width: 100%;
+}
+
+.box-content h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #838383;
+}
+
+.box-content p {
+    margin: 5px 0 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.main-header {
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.site-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
 }

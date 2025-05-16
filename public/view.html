@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>عرض الطلبات</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .page {
+        padding: 20px;
+      }
+      .delete-btn {
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-section">
+        <img src="img/logo.webp" alt="شعار " class="logo" />
+        <span class="site-name">My-Site</span>
+      </div>
+      <nav class="nav-links">
+        <a href="form.html"> Form</a>
+        <a href="view.html"> View</a>
+        <a href="payment.html">Payment</a>
+      </nav>
+    </header>
+
+    <div class="page">
+      <h1>📋 قائمة الطلبات</h1>
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>الاسم الكامل</th>
+            <th>البريد الإلكتروني</th>
+            <th>اشتراك</th>
+            <th>التاريخ</th>
+            <th>الوقت</th>
+            <th>الاجراءات</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div style="margin-top: 30px">
+        <a href="form.html" style="color: white">🔙 الرجوع إلى العرض</a>
+      </div>
+    </div>
+
+    <script>
+      function formatDateOnly(dateString) {
+        const date = new Date(dateString);
+        return date.toISOString().split("T")[0]; // yyyy-mm-dd
+      }
+
+      function formatTimeOnly(dateString) {
+        const date = new Date(dateString);
+        return date.toTimeString().split(" ")[0]; // hh:mm:ss
+      }
+
+      function getData() {
+        fetch("/data")
+          .then((res) => res.json())
+          .then((rows) => {
+            const tbody = document.querySelector("#dataTable tbody");
+            tbody.innerHTML = "";
+
+            // ترتيب البيانات من الأحدث إلى الأقدم
+            rows.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            rows.forEach((row) => {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+                <td>${row.name}</td>
+                <td>${row.email}</td>
+                <td>${row.plan || ""}</td>
+                <td>${formatDateOnly(row.createdAt)}</td>  <!-- التاريخ -->
+                <td>${formatTimeOnly(row.createdAt)}</td>  <!-- الوقت -->
+                <td><button class="delete-btn" onclick="deleteRow('${
+                  row.id
+                }')">❌</button></td>
+              `;
+              tbody.appendChild(tr);
+            });
+          });
+      }
+
+      function deleteRow(id) {
+        if (confirm("هل أنت متأكد من حذف هذا المستخدم؟")) {
+          fetch(`/delete/${id}`, { method: "DELETE" }).then((res) => {
+            if (res.ok) {
+              getData(); // إعادة تحميل البيانات بعد الحذف
+            } else {
+              alert("فشل في الحذف.");
+            }
+          });
+        }
+      }
+
+      window.onload = getData;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-section">
+        <img src="img/logo.webp" alt="شعار الموقع" class="logo" />
+        <span class="site-name">My-Site</span>
+      </div>
+      <nav class="nav-links">
+        <a href="form.html"> Form</a>
+        <a href="view.html"> View</a>
+        <a href="payment.html">Payment</a>
+      </nav>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <div class="box-container">
+      <!-- صفحة النموذج -->
+      <div id="formPage" class="page">
+        <div class="header">
+          <h1>اختر خطتك الآن!</h1>
+        </div>
+        <p
+          style="
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+            line-height: 1.8;
+          "
+        >
+          استمتع بتجربة مجانية كاملة لمدة
+          <span style="color: #b31717">3 أيام</span> مع وصول غير محدود إلى جميع
+          الميزات والخصائص المتميزة —
+          <a
+            href="your-link-here.html"
+            style="color: #0051ff; text-decoration: none"
+            >ابدأ الآن</a
+          >
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>الاشتراك الشهري</h3>
+            <div class="price">100 درهم شهريًا</div>
+            <ul>
+              <li>✔ إضافة المنتجات الجديدة</li>
+              <li>✔ الوصول إلى جميع المنتجات</li>
+              <li>✔ إضافة إلى السلة</li>
+              <li class="line-through">
+                ✖ إرسال منتج جديد عبر البريد الإلكتروني
+              </li>
+              <li class="line-through">✖ إنشاء صفحة هبوط</li>
+              <li class="line-through">✖ عرض إحصائيات الزيارات والطلبات</li>
+              <li class="line-through">✖ تقارير الداشبورد</li>
+              <li class="line-through">✖ إضافة عروض خاصة لمواقع SPA</li>
+            </ul>
+            <a
+              href="#"
+              class="btn"
+              onclick="openForm(' الاشتراك الشهري 100 درهم شهريًا')"
+              >اشترك الآن</a
+            >
+          </div>
+
+          <div class="card">
+            <h3>الاشتراك السنوي</h3>
+            <div class="price">300 درهم سنويًا</div>
+            <ul>
+              <li>✔ إضافة المنتجات الجديدة</li>
+              <li>✔ الوصول إلى جميع المنتجات</li>
+              <li>✔ إضافة إلى السلة</li>
+              <li>✔ إرسال منتج جديد عبر البريد الإلكتروني</li>
+              <li>✔ إنشاء صفحة هبوط</li>
+              <li class="line-through">✖ عرض إحصائيات الزيارات والطلبات</li>
+              <li class="line-through">✖ تقارير الداشبورد</li>
+              <li>✔ إضافة عروض خاصة لمواقع SPA</li>
+            </ul>
+            <a
+              href="#"
+              class="btn"
+              onclick="openForm('الاشتراك السنوي 300 درهم سنويًا')"
+              >اشترك الآن</a
+            >
+          </div>
+
+          <div class="card">
+            <h3>شراء النسخة الكاملة</h3>
+            <div class="price">3000 درهم (نسخة كاملة)</div>
+            <ul>
+              <li>✔ إضافة المنتجات الجديدة</li>
+              <li>✔ الوصول إلى جميع المنتجات</li>
+              <li>✔ إضافة إلى السلة</li>
+              <li>✔ إرسال منتج جديد عبر البريد الإلكتروني</li>
+              <li>✔ إنشاء صفحة هبوط</li>
+              <li>✔ عرض إحصائيات الزيارات والطلبات</li>
+              <li>✔ تقارير الداشبورد</li>
+              <li>✔ إضافة عروض خاصة لمواقع SPA</li>
+            </ul>
+            <a
+              href="#"
+              class="btn"
+              onclick="openForm('شراء النسخة الكاملة 3000 درهم ')"
+              >اشترِ الآن</a
+            >
+          </div>
+
+          <!-- Cards for additional services -->
+          <div class="card">
+            <h3>تحسينات حسب الطلب</h3>
+            <div class="price">ابتداءً من 1500 درهم</div>
+            <ul>
+              <li>✔ تخصيص تصميم الموقع</li>
+              <li>✔ تخصيص واجهة المستخدم</li>
+              <li>✔ تحسين محركات البحث</li>
+              <li>✔ إضافة أدوات تحليل متقدمة</li>
+              <li>✔ إضافة ميزات خاصة للمستخدمين</li>
+            </ul>
+            <a
+              href="#"
+              class="btn"
+              onclick="openForm(' تحسينات حسب الطلب ابتداءً من 1500 درهم')"
+              >اطلب الآن</a
+            >
+          </div>
+
+          <div class="card">
+            <h3>إنشاء موقع بديل</h3>
+            <div class="price">ابتداءً من 2000 درهم</div>
+            <ul>
+              <li>✔ تصميم وتطوير موقع جديد بناءً على احتياجاتك</li>
+              <li>✔ إنشاء صفحات مخصصة</li>
+              <li>✔ تكامل مع أدوات خارجية</li>
+              <li>✔ دعم تقني 24/7</li>
+              <li>✔ تواصل مباشر</li>
+            </ul>
+            <a
+              href="#"
+              class="btn"
+              onclick="openForm(' إنشاء موقع بديل ابتداءً من 2000 درهم')"
+              >ابدأ الآن</a
+            >
+          </div>
+
+          <div class="card">
+            <h3>التخفيضات والخصومات</h3>
+            <div class="price">خصومات خاصة</div>
+            <ul>
+              <li>✔ خصومات على الخدمات الخاصة بالموقع</li>
+              <li>✔ عروض خاصة للأعضاء الجدد</li>
+              <li>✔ اشتراك مجاني لمدة 7 أيام للخطط السنوية</li>
+              <li>✔ اضافة ميزات جديدة لمدة محدودة</li>
+              <li>✔ خصم 10% الخطة السنوية لأول 50 مشترك</li>
+            </ul>
+            <a href="#" class="btn" onclick="openForm(' التخفيضات والخصومات ')"
+              >استفد من التخفيضات</a
+            >
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj9CiW1U6swYyKcXa6egokDPfJMHCl292OdsvirFv61yp5XAH_lGAayuciUBOVZmOZKKk&usqp=CAU"
+            alt="صورة 1"
+          />
+        </div>
+
+        <div class="image-container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKcnDUIrK9TuZw851X0GVZGHfY841wLg8dcRU_sQ1zGn1cqEr7iQ9xu66ewVhPxrn5Qk&usqp=CAU"
+            alt="صورة 2"
+          />
+        </div>
+
+        <div class="image-container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjSSNa63lTP2Yt3M_mRpfqf4HKOM5yZsRAd6Z0EnQjPty8hhQJDl9xrT_h3aDWdMZsLpw&usqp=CAU"
+            alt="صورة 3"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj9CiW1U6swYyKcXa6egokDPfJMHCl292OdsvirFv61yp5XAH_lGAayuciUBOVZmOZKKk&usqp=CAU"
+            alt="صورة 1"
+          />
+        </div>
+
+        <div class="image-container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKcnDUIrK9TuZw851X0GVZGHfY841wLg8dcRU_sQ1zGn1cqEr7iQ9xu66ewVhPxrn5Qk&usqp=CAU"
+            alt="صورة 2"
+          />
+        </div>
+
+        <div class="image-container">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjSSNa63lTP2Yt3M_mRpfqf4HKOM5yZsRAd6Z0EnQjPty8hhQJDl9xrT_h3aDWdMZsLpw&usqp=CAU"
+            alt="صورة 3"
+          />
+        </div>
+
+        <!-- Description of how the site works -->
+        <div class="description">
+          <p>
+            موقعنا يوفر لك طريقة سهلة وفعّالة لإدارة متجرك الإلكتروني. من إضافة
+            المنتجات، إلى إدارة الطلبات، والتواصل مع العملاء بعد البيع، إلى
+            تخصيص صفحات الهبوط الخاصة بك. نحن هنا لمساعدتك في تحسين تجربة
+            التجارة الإلكترونية الخاصة بك من خلال أدوات قوية وواجهة مستخدم مرنة.
+          </p>
+
+          <p
+            style="
+              color: white;
+              font-size: 20px;
+              font-weight: bold;
+              line-height: 1.8;
+            "
+          >
+            استمتع بتجربة مجانية كاملة لمدة
+            <span style="color: #b31717">3 أيام</span> مع وصول غير محدود إلى
+            جميع الميزات والخصائص المتميزة —
+            <a
+              href="your-link-here.html"
+              style="color: #0051ff; text-decoration: none"
+              >ابدأ الآن</a
+            >
+          </p>
+
+          <p>
+            اختر الخطة التي تناسبك وابدأ في استخدام كافة المميزات المتاحة لتحسين
+            موقعك وبيع منتجاتك بكل سهولة واحترافية. بفضل الاشتراك الشهري،
+            السنوي، أو النسخة الكاملة، يمكنك التمتع بكافة المزايا على مدار
+            الساعة.
+          </p>
+        </div>
+      </div>
+
+      <form id="myForm">
+        <h3 id="selectedPlanTitle" style="color: white"></h3>
+        <input type="hidden" id="plan" name="plan" />
+        <input type="text" id="name" placeholder="الاسم" required /><br /><br />
+        <input
+          type="email"
+          id="email"
+          placeholder="البريد الإلكتروني"
+          required
+        /><br /><br />
+        <button type="submit">💾 حفظ</button>
+      </form>
+    </div>
+
+    <script>
+      function openForm(planText) {
+        document.getElementById("myForm").style.display = "block";
+        document.getElementById("selectedPlanTitle").innerText =
+          "الخطة المختارة: " + planText;
+        document.getElementById("plan").value = planText;
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+
+      document.getElementById("myForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const plan = document.getElementById("plan").value;
+
+        fetch("/save", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, plan }),
+        }).then(() => {
+          document.getElementById("myForm").reset();
+          document.getElementById("myForm").style.display = "none";
+          // الانتقال إلى صفحة الدفع
+          window.location.href = "payment.html";
+        });
+      });
+    </script>
+  </body>
+</html>
